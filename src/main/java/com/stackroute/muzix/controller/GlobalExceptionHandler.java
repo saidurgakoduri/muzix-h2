@@ -14,24 +14,24 @@ import javax.persistence.Id;
 import java.net.IDN;
 
 @ControllerAdvice
-@Log4j
+
 public class GlobalExceptionHandler {
     @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "track already exists")
     @ExceptionHandler(TrackAlreadyExistsException.class)
     public void handleEmptyFieldException(TrackAlreadyExistsException e)
     {
-        log.error(" Track already exists", e);
+        System.out.println(" Track already exists");
     }
     @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "Track not found")
     @ExceptionHandler(TrackNotFoundException.class)
     public void handleEmptyFieldException(TrackNotFoundException e)
     {
-        log.error(" Track is not present to delete", e);
+        System.out.println(" Track is not present to delete");
     }
     @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "Id is not present to update")
     @ExceptionHandler(IdNotFoundException.class)
     public void handleEmptyFieldException(IdNotFoundException e)
     {
-        log.error(" Id is not present to delete", e);
+        System.out.println(" Id is not present to delete");
     }
 }
